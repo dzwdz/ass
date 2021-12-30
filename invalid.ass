@@ -1,0 +1,22 @@
+some random line
+
+# only a date
+2021-01-01
+2021-01-02	
+2021-01-02		asdf
+
+# duplicate tabs
+2021-01-03		https://example.com
+
+# junk before date
+	2021-01-04	https://example.com
+ 2021-01-05	https://example.com
+
+# date without dashes
+20210106 http://example.com
+
+# invalid URIs
+2021-01-07	https://note the space.com	something
+
+# space instead of tab
+2021-01-08 https://example.com
