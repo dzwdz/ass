@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>actually simple syndication</title>
+	<style>
+h1 { text-align: center; }
+
+/*
+*  { margin: 0; }
+h1, h2, hr {
+	margin-top: 1em;
+}*/
+
+body {
+	max-width: 80ch;
+	margin: auto;
+}
+
+code {
+	font-family: monospace;
+}
+
+pre {
+	border-left: 2px solid;
+	padding-left: 1ch;
+}
+	</style>
+	</head>
+	<body>
+
+<h1>Actually Simple Syndication</h1>
+<h2>why? or, the part that you can skip</h2><p>
+For something called <i>Really Simple</i> Syndication, RSS is really complicated, huh?
+Generating an RSS feed can be the most tedious part of making a static site generator.
+And if you're making a feed reader, have fun figuring out how to uniquely identify articles!
+There's no single good way to do it. tl;dr rss sucks
+<br /><br />
+Actually Simple Syndication aims to be an alternative to RSS with a truthful name.
+</p>
+
+<h2>the spec</h2><p>
+An .ass file consists of a bunch of lines. Every line represents an item (e.g. article).
+<br /><br />
+Every line consists of:
+<ol>
+	<li>an ISO-8601 formatted date with dashes</li>
+	<li>the URI of the item</li>
+	<li>(optionally) the title of the item</li>
+</ol>
+Those elements are separated by tabs. Every tab after the URI is treated as part of the title.
+The order of the lines doesn't matter.
+Additional whitespace before the date is NOT permitted.
+<br /><br />
+Lines can also start with the # character. Those lines are to be ignored by clients.
+<br /><br />
+TODO: figure out a standard filename. fuck the rss filename bullshit
+</p>
+
+<h2>examples</h2>
+<pre>
+# here's an example .ass file
+2021-12-30	https://example.com/article-1	Article 1: Something something
+2021-04-20	gemini://example.com/brpf
+</pre>
+<pre>
+#!/bin/sh
+# one-liner feed aggregator
+curl $(cat feeds.txt) | grep -v ^# | sort
+</pre>
+
+
+<h2>benefits over RSS</h2>
+<ul>
+	<li>doesn't use XML - it's <i>actually</i> simple</li>
+	<li>articles can be easily compared/deduplicated</li>
+	<li>so simple you can shit out clients/feed generators at record speed</li>
+</ul>
+
+<hr /> CC0 or something like that. only corporations care about licenses
+</body></html>
