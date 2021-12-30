@@ -1,0 +1,7 @@
+# Actually Simple Syndication, see https://tilde.town/~dzwdz/ass.html
+
+2021-04-20	gemini://example.com/brpf
+2021-12-30	https://example.com/article-1	Article 1: Something something
+# some random comment
+2021-04-20T20:41:19Z	http://a.b.c.d/something	an item with an hour
+2021-06-09	https://example.com/whatever	this title contains	tabs
