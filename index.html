@@ -31,14 +31,7 @@ pre {
 	<body>
 
 <h1>Actually Simple Syndication</h1>
-<h2>why? or, the part that you can skip</h2><p>
-For something called <i>Really Simple</i> Syndication, RSS is really complicated, huh?
-Generating an RSS feed can be the most tedious part of making a static site generator.
-And if you're making a feed reader, have fun figuring out how to uniquely identify articles!
-There's no single good way to do it. tl;dr rss sucks
-<br /><br />
-Actually Simple Syndication aims to be an alternative to RSS with a truthful name.
-</p>
+<p>an alternative to "Really Simple" Syndication which tries to actually be simple</p>
 
 <h2>the spec</h2><p>
 An .ass file consists of a bunch of lines. Every line represents an item (e.g. article).
@@ -54,13 +47,14 @@ The order of the lines doesn't matter.
 Additional whitespace before the date is NOT permitted.
 <br /><br />
 Lines can also be empty or start with the # character. Those lines are to be ignored by clients.
+I recommend adding a comment with a link to this page at the top, so people won't get confused about what to do with the file.
 <br /><br />
-TODO: figure out a standard filename. fuck the rss filename bullshit
+If an .ass extension is too silly for you, you can just use .txt instead.
 </p>
 
 <h2>examples</h2>
 <pre>
-# here's an example .ass file
+# Actually Simple Syndication - https://tilde.town/~dzwdz/ass/
 2021-12-30	https://example.com/article-1	Article 1: Something something
 2021-04-20	gemini://example.com/brpf
 </pre>
@@ -75,7 +69,13 @@ curl $(cat feeds.txt) | grep -v ^# | sort
 <ul>
 	<li>doesn't use XML - it's <i>actually</i> simple</li>
 	<li>articles can be easily compared/deduplicated</li>
-	<li>so simple you can shit out clients/feed generators at record speed</li>
+	<li>can be parsed with standard unix tools</li>
+</ul>
+
+<h2>software, websites, etc</h2>
+<ul>
+	<li><a href="https://tilde.town/~dzwdz/ass/planet.html">a planet-like feed aggregator.</a> also contains a list of all currently known ass feeds</li>
+	<li><a href="https://github.com/dzwdz/ass">the full git repo.</a> contains e.g. a prototype feed validator</li>
 </ul>
 
 <hr /> CC0 or something like that. only corporations care about licenses
